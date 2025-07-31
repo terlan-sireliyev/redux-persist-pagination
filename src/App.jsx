@@ -4,15 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "./redux/productsSlice/productsSlice";
 import { setCurrentPage } from "./redux/paginationSlice/paginationSlice";
 import ReactPaginate from "react-paginate";
-import "./App.css";
+// import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
 
   const {
     items: products,
-    loading,
-    error,
+    // loading,
+    // error,
   } = useSelector((state) => state.product);
 
   const { currentPage, itemsPerPage } = useSelector(
@@ -37,8 +37,8 @@ function App() {
         Məhsullar
       </h1>
 
-      {loading && <p className="text-center">Yüklənir...</p>}
-      {error && <p className="text-center text-red-500">Xəta: {error}</p>}
+      {/* {loading && <p className="text-center">Yüklənir...</p>}
+      {error && <p className="text-center text-red-500">Xəta: {error}</p>} */}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {currentItems.map((product) => (
@@ -63,13 +63,13 @@ function App() {
         pageCount={pageCount}
         onPageChange={handlePageClick}
         forcePage={currentPage}
-        containerClassName="flex justify-center mt-8 space-x-2"
-        pageClassName="border rounded"
-        pageLinkClassName="px-3 py-1 block cursor-pointer"
-        previousClassName="border rounded"
-        previousLinkClassName="px-3 py-1 block cursor-pointer"
-        nextClassName="border rounded"
-        nextLinkClassName="px-3 py-1 block cursor-pointer"
+        containerClassName="pagination-container flex justify-center mt-8 space-x-2"
+        pageClassName="pagination-page border rounded"
+        pageLinkClassName="pagination-link px-2 py-1 block cursor-pointer text-sm"
+        previousClassName="pagination-prev border rounded"
+        previousLinkClassName="pagination-link px-2 py-1 block cursor-pointer text-sm"
+        nextClassName="pagination-next border rounded"
+        nextLinkClassName="pagination-link px-2 py-1 block cursor-pointer text-sm"
         activeClassName="bg-blue-600 text-white"
         disabledClassName="opacity-50 cursor-not-allowed"
       />
