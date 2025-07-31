@@ -1,0 +1,29 @@
+/* App.css */
+
+.pagination-link {
+  font-size: 14px;
+  padding: 6px 12px;
+  white-space: nowrap;
+}
+
+/* Kiçik ekranlarda dəyişiklik */
+@media (max-width: 436px) {
+  /* Əvvəlki və Sonrakı textlərini gizlət, sadəcə oxlar görünsün */
+  .pagination-prev .pagination-link::before {
+    content: "←";
+    font-size: 16px;
+  }
+
+  .pagination-next .pagination-link::before {
+    content: "→";
+    font-size: 16px;
+  }
+
+  /* Əsas mətni gizlətmək üçün font-size sıfırla və overflow gizlət */
+  .pagination-prev .pagination-link,
+  .pagination-next .pagination-link {
+    font-size: 0;
+    padding: 6px 10px;
+    overflow: hidden;
+  }
+}

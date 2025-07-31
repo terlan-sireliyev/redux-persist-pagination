@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "./redux/productsSlice/productsSlice";
 import { setCurrentPage } from "./redux/paginationSlice/paginationSlice";
 import ReactPaginate from "react-paginate";
-// import "./App.css";
+import "./App.css";
+// import useWindowWidth from "./useWindowWidth";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ function App() {
   const { currentPage, itemsPerPage } = useSelector(
     (state) => state.pagination
   );
+ 
 
   const offset = currentPage * itemsPerPage;
   const currentItems = products?.slice(offset, offset + itemsPerPage) || [];
@@ -58,8 +60,8 @@ function App() {
       </div>
 
       <ReactPaginate
-        previousLabel={"← Əvvəlki"}
-        nextLabel={"Sonrakı →"}
+        previousLabel={ "← Əvvəlki"}
+        nextLabel={ "Sonrakı →"}
         pageCount={pageCount}
         onPageChange={handlePageClick}
         forcePage={currentPage}
